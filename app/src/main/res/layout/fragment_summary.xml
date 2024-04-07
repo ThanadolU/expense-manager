@@ -6,13 +6,13 @@
     tools:context=".SummaryFragment">
 
     <!-- TODO: Update blank fragment layout -->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Summary Fragment"
-            android:textSize="36sp"
-            android:textColor="@color/teal_200"
-            android:gravity="center" />
+<!--    <TextView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:text="Summary Fragment"-->
+<!--        android:textSize="36sp"-->
+<!--        android:textColor="@color/teal_200"-->
+<!--        android:gravity="center" />-->
 
     <View
         android:id="@+id/view"
@@ -36,6 +36,58 @@
         android:text="Summary"
         android:textColor="@color/black"
         android:textSize="20sp" />
+
+    <LinearLayout
+        android:id="@+id/filterLayout"
+        android:layout_width="360dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="35dp"
+        android:orientation="horizontal"
+        android:background="@color/gray">
+
+<!--        <Button-->
+<!--            android:id="@+id/allFilter"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_weight="1"-->
+<!--            android:text="All"-->
+<!--            android:textSize="13dp" />-->
+
+<!--        <Button-->
+<!--            android:id="@+id/dailyFilter"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_weight="1"-->
+<!--            android:text="Daily"-->
+<!--            android:textSize="13dp" />-->
+
+<!--        <Button-->
+<!--            android:id="@+id/weekly"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_weight="1"-->
+<!--            android:text="Weekly"-->
+<!--            android:textSize="13dp" />-->
+
+<!--        <Button-->
+<!--            android:id="@+id/allMonthly"-->
+<!--            android:layout_width="5dp"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_weight="1"-->
+<!--            android:text="Monthly"-->
+<!--            android:textSize="13dp" />-->
+
+<!--        <Button-->
+<!--            android:id="@+id/allYearly"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="50dp"-->
+<!--            android:layout_weight="1"-->
+<!--            android:text="Yearly"-->
+<!--            android:textSize="13dp"-->
+<!--            />-->
+    </LinearLayout>
 
     <TableLayout
         android:layout_width="match_parent"
