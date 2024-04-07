@@ -4,6 +4,7 @@
     <item
         android:id="@+id/nav_home"
         android:icon="@drawable/home_icon"
+        android:drawablePadding="2dp"
         android:title="Home" />
 
     <item

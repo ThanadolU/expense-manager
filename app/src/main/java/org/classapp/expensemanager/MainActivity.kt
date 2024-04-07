@@ -20,6 +20,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.fragment.app.Fragment
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.Navigation
 import androidx.navigation.compose.NavHost
@@ -30,6 +31,8 @@ import com.google.android.material.navigation.NavigationBarView
 import org.classapp.expensemanager.ui.theme.ExpenseManagerTheme
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var bottomNavigationView: BottomNavigationView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 //        setContent {
@@ -45,17 +48,33 @@ class MainActivity : AppCompatActivity() {
 //            }
 //        }
         setContentView(R.layout.activity_main)
-//        NavigationBarView.OnItemSelectedListener {
-//            when (it.itemId) {
-//                R.id.nav_home -> {
-//
-//                }
-//            }
-//        }
+        bottomNavigationView = findViewById(R.id.bottom_navigation)
 
-        R.id.nav_home
-        R.id.nav_summary
-        R.id.nav_chart
+        bottomNavigationView.setOnItemSelectedListener { menuItem ->
+            when(menuItem.itemId) {
+                R.id.nav_home -> {
+                    replaceFragment(HomeFragment())
+                    true
+                }
+                R.id.nav_summary -> {
+                    replaceFragment(SummaryFragment())
+                    true
+                }
+                R.id.nav_chart -> {
+                    replaceFragment(ChartFragment())
+                    true
+                }
+                R.id.nav_profile -> {
+                    replaceFragment(ProfileFragment())
+                    true
+                }
+                else -> false
+            }
+        }
+        replaceFragment(HomeFragment())
+    }
+    private fun replaceFragment(fragment: Fragment) {
+        supportFragmentManager.beginTransaction().replace(R.id.fl_wrapper, fragment).commit()
     }
 }
 
