@@ -14,4 +14,27 @@
         android:textColor="@color/teal_200"
         android:gravity="center" />
 
+    <View
+        android:id="@+id/viewProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:background="@color/white"/>
+
+    <ImageView
+        android:id="@+id/imageProfileView"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="17dp"
+        android:src="@drawable/user" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="28dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="16dp"
+        android:text="Profile"
+        android:textColor="@color/black"
+        android:textSize="20sp" />
+
 </FrameLayout>
