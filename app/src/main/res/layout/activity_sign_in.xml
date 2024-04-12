@@ -45,7 +45,7 @@
         app:layout_constraintTop_toTopOf="@+id/view4" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/signInBtn"
         android:layout_width="271dp"
         android:layout_height="38dp"
         android:layout_marginBottom="152dp"
