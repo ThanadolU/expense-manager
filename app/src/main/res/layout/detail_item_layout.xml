@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <!-- Color indicator view -->
+    <View
+        android:id="@+id/colorIndicator"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/colorAccent" />
+
+    <TextView
+        android:id="@+id/detailTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="16dp"
+        android:textColor="@android:color/black"
+        android:textSize="16sp" />
+
+</LinearLayout>
