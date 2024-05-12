@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="350dp"
+    android:layout_height="70dp"
+    android:orientation="horizontal"
+    android:layout_marginTop="30dp"
+    android:layout_marginBottom="50dp"
+    android:layout_marginStart="25dp"
+    android:background="@color/gray_3">
+
+    <!-- Color indicator -->
+    <View
+        android:id="@+id/colorIndicator"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="45dp"
+        android:background="@color/colorPrimary" />
+
+    <!-- Details and expenses -->
+
+    <!-- Details -->
+    <TextView
+        android:id="@+id/detailsTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="45dp"
+        android:text="Details"
+        android:textColor="@android:color/black"
+        android:textSize="20sp" />
+
+    <!-- Expenses -->
+    <TextView
+        android:id="@+id/expensesTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="45dp"
+        android:text="Expenses"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="20sp" />
+
+</LinearLayout>

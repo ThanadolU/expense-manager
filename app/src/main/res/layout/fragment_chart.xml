@@ -6,24 +6,25 @@
     tools:context=".ChartFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <LinearLayout
-        android:id="@+id/filterChartLayout"
-        android:layout_width="360dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="70dp"
-        android:layout_marginLeft="18dp"
-        android:layout_marginRight="35dp"
-        android:orientation="horizontal"
-        android:background="@drawable/rounded_layout_background">
-    </LinearLayout>
+<!--    <LinearLayout-->
+<!--        android:id="@+id/filterChartLayout"-->
+<!--        android:layout_width="360dp"-->
+<!--        android:layout_height="40dp"-->
+<!--        android:layout_marginTop="70dp"-->
+<!--        android:layout_marginLeft="18dp"-->
+<!--        android:layout_marginRight="35dp"-->
+<!--        android:orientation="horizontal"-->
+<!--        android:background="@drawable/rounded_layout_background"-->
+<!--        android:backgroundTint="@color/gray_2">-->
+<!--    </LinearLayout>-->
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Chart Fragment"
-        android:textSize="36sp"
-        android:textColor="@color/teal_200"
-        android:gravity="center" />
+<!--    <TextView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:text="Chart Fragment"-->
+<!--        android:textSize="36sp"-->
+<!--        android:textColor="@color/teal_200"-->
+<!--        android:gravity="center" />-->
 
     <View
         android:id="@+id/viewChart"
@@ -47,5 +48,266 @@
         android:text="Chart"
         android:textColor="@color/black"
         android:textSize="20sp" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewGraph"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="90dp"
+        android:elevation="10dp">
+
+
+        <!--Linear layout to display pie chart -->
+        <!-- and details of pie chart-->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <!--Pie chart to display the data-->
+
+            <org.eazegraph.lib.charts.PieChart
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/piechart"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:padding="6dp"
+                android:layout_weight="1"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginBottom="15dp"
+
+                />
+
+            <!--Creating another linear layout -->
+            <!-- to display pie chart details -->
+            <ScrollView
+                android:id="@+id/detailsShow"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginLeft="20dp"
+                android:orientation="vertical"
+                android:gravity="center_vertical"
+                >
+
+            </ScrollView>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+    <!-- Another Card view for displaying -->
+    <!-- Use of programming languages -->
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="340dp"
+        android:layout_below="@+id/cardViewGraph"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="340dp"
+        android:layout_marginBottom="20dp"
+        android:elevation="10dp"
+        android:id="@+id/details">
+
+        <!--Relative layout to display -->
+        <!-- use of programming languages -->
+        <ScrollView
+            android:id="@+id/detailsExpensesShow"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="26dp"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical"
+            android:gravity="center_vertical">
+<!--            <LinearLayout-->
+<!--                android:id="@+id/detailsExpensesShow"-->
+<!--                android:layout_width="300dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:paddingLeft="5dp"-->
+<!--                android:paddingRight="5dp"-->
+<!--                android:layout_marginStart="5dp"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                android:orientation="vertical"-->
+<!--                android:gravity="center">-->
+
+<!--            </LinearLayout>-->
+        </ScrollView>
+
+            <!--Text view to use of -->
+            <!-- programming languages text-->
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Use of Programming Languages(In Percentage):"-->
+<!--                android:textSize="23sp"-->
+<!--                android:textStyle="bold"-->
+<!--                android:layout_marginLeft="25dp"-->
+<!--                android:layout_marginTop="20dp"/>-->
+
+<!--            &lt;!&ndash;View to display the line&ndash;&gt;-->
+<!--            <View-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="1dp"-->
+<!--                android:background="@color/color_two"-->
+<!--                android:layout_marginLeft="20dp"-->
+<!--                android:layout_marginRight="20dp"-->
+<!--                android:layout_marginTop="5dp"/>-->
+
+<!--            <RelativeLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginRight="25dp"-->
+<!--                android:layout_marginLeft="25dp"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                android:layout_marginBottom="10dp">-->
+
+<!--                &lt;!&ndash;Text view to display R &ndash;&gt;-->
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:fontFamily="sans-serif-light"-->
+<!--                    android:text="R"-->
+<!--                    android:textSize="18sp"/>-->
+
+<!--                &lt;!&ndash;Text view to display the &ndash;&gt;-->
+<!--                &lt;!&ndash; percentage of programming language &ndash;&gt;-->
+<!--                &lt;!&ndash; used. For now default set to 0&ndash;&gt;-->
+<!--                <TextView-->
+<!--                    android:layout_width="fill_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="0"-->
+<!--                    android:id="@+id/tvR"-->
+<!--                    android:textAlignment="textEnd"-->
+<!--                    android:textSize="18sp"-->
+<!--                    android:textColor="@color/color_one"-->
+<!--                    android:textStyle="bold"-->
+<!--                    android:fontFamily="sans-serif-light"-->
+<!--                    android:layout_alignParentRight="true"/>-->
+<!--            </RelativeLayout>-->
+
+<!--            &lt;!&ndash;View to display the line&ndash;&gt;-->
+<!--            <View-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="1dp"-->
+<!--                android:background="@color/color_two"-->
+<!--                android:layout_marginLeft="20dp"-->
+<!--                android:layout_marginRight="20dp" />-->
+
+<!--            <RelativeLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginRight="25dp"-->
+<!--                android:layout_marginLeft="25dp"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                android:layout_marginBottom="10dp">-->
+
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:fontFamily="sans-serif-light"-->
+<!--                    android:text="Python"-->
+<!--                    android:textSize="18sp"/>-->
+
+<!--                &lt;!&ndash;Text view to display the percentage &ndash;&gt;-->
+<!--                &lt;!&ndash; of programming language used. &ndash;&gt;-->
+<!--                &lt;!&ndash; For now default set to 0&ndash;&gt;-->
+
+<!--                <TextView-->
+<!--                    android:layout_width="fill_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="0"-->
+<!--                    android:id="@+id/tvPython"-->
+<!--                    android:textAlignment="textEnd"-->
+<!--                    android:textSize="18sp"-->
+<!--                    android:textColor="@color/color_one"-->
+<!--                    android:textStyle="bold"-->
+<!--                    android:fontFamily="sans-serif-light"-->
+<!--                    android:layout_alignParentRight="true"/>-->
+
+<!--            </RelativeLayout>-->
+<!--            <View-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="1dp"-->
+<!--                android:background="@color/color_two"-->
+<!--                android:layout_marginLeft="20dp"-->
+<!--                android:layout_marginRight="20dp" />-->
+
+<!--            <RelativeLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginRight="25dp"-->
+<!--                android:layout_marginLeft="25dp"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                android:layout_marginBottom="10dp">-->
+
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:fontFamily="sans-serif-light"-->
+<!--                    android:text="C++"-->
+<!--                    android:textSize="18sp"/>-->
+
+<!--                &lt;!&ndash;Text view to display the percentage &ndash;&gt;-->
+<!--                &lt;!&ndash; of programming language used. &ndash;&gt;-->
+<!--                &lt;!&ndash; For now default set to 0&ndash;&gt;-->
+<!--                <TextView-->
+<!--                    android:layout_width="fill_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="0"-->
+<!--                    android:id="@+id/tvCPP"-->
+<!--                    android:textAlignment="textEnd"-->
+<!--                    android:textSize="18sp"-->
+<!--                    android:textColor="@color/color_one"-->
+<!--                    android:textStyle="bold"-->
+<!--                    android:fontFamily="sans-serif-light"-->
+<!--                    android:layout_alignParentRight="true"/>-->
+
+<!--            </RelativeLayout>-->
+<!--            <View-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="1dp"-->
+<!--                android:background="@color/color_two"-->
+<!--                android:layout_marginLeft="20dp"-->
+<!--                android:layout_marginRight="20dp" />-->
+
+<!--            <RelativeLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginRight="25dp"-->
+<!--                android:layout_marginLeft="25dp"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                android:layout_marginBottom="10dp">-->
+
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:fontFamily="sans-serif-light"-->
+<!--                    android:text="Java"-->
+<!--                    android:textSize="18sp"/>-->
+
+<!--                &lt;!&ndash;Text view to display the percentage &ndash;&gt;-->
+<!--                &lt;!&ndash; of programming language used. &ndash;&gt;-->
+<!--                &lt;!&ndash; For now default set to 0&ndash;&gt;-->
+<!--                <TextView-->
+<!--                    android:layout_width="fill_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="0"-->
+<!--                    android:id="@+id/tvJava"-->
+<!--                    android:textAlignment="textEnd"-->
+<!--                    android:textSize="18sp"-->
+<!--                    android:textColor="@color/color_one"-->
+<!--                    android:textStyle="bold"-->
+<!--                    android:fontFamily="sans-serif-light"-->
+<!--                    android:layout_alignParentRight="true"/>-->
+
+<!--            </RelativeLayout>-->
+
+        </androidx.cardview.widget.CardView>
 
 </FrameLayout>
