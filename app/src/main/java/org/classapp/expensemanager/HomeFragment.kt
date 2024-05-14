@@ -202,12 +202,6 @@ class HomeFragment : Fragment() {
                     }
                 }
                 getTransactionsForSpecificBankFromDatabase(view, tableLayout, bankName)
-
-//                getDataFromFirebase(bankName)
-//                wantToDeleteBank.setOnClickListener {
-//                    deleteTransactionsForSpecificBankFromDatabase(bankName)
-//                    deleteBankCardView.visibility = View.GONE
-//                }
                 },
                 onDeleteTransactionClicked = {bankName ->
                     deleteBankCardView.visibility = View.VISIBLE
@@ -290,6 +284,11 @@ class HomeFragment : Fragment() {
         }
 
         imageArrowBtnEdit.setOnClickListener {
+            dateEditText.text.clear()
+            detailsEditText.text.clear()
+            companyEditText.text.clear()
+            incomeEditText.text.clear()
+            expensesEditText.text.clear()
             editBankCardView.visibility = View.GONE
         }
 
@@ -298,12 +297,20 @@ class HomeFragment : Fragment() {
         }
 
         closeAddIncomeExpensesBtn.setOnClickListener {
+            dateEditText.text.clear()
+            detailsEditText.text.clear()
+            companyEditText.text.clear()
+            incomeEditText.text.clear()
+            expensesEditText.text.clear()
             editBankCardView.visibility = View.GONE
         }
 
-        addIncomeExpensesCardView
-
         imageArrowBtnAddIncomeExpenses.setOnClickListener {
+            dateEditText.text.clear()
+            detailsEditText.text.clear()
+            companyEditText.text.clear()
+            incomeEditText.text.clear()
+            expensesEditText.text.clear()
             addIncomeExpensesCardView.visibility = View.GONE
         }
 
@@ -314,21 +321,25 @@ class HomeFragment : Fragment() {
 //            "Credit Card",
 //            "Donation",
 //            "Education",
-//            "Electricity/Water Bill",
-//            "Entertainment/Leisure",
+//            "Electricity",
+//            "Water",
+//            "Entertainment",
 //            "Gift",
 //            "Hospital",
-//            "Hotel/Resort",
-//            "Internet/Telephone",
-//            "Savings and Investment",
+//            "Hotel",
+//            "Resort",
+//            "Internet",
+//            "Telephone",
+//            "Savings",
+//            "Investment",
 //            "Party",
 //            "Shopping",
 //            "Travel Expense",
-//            "Tourism/Travel",
+//            "Tourism",
 //            "Withdrawal",
 //            "Salary"
 //        )
-//
+
 //        val arrayAdapter = ArrayAdapter(view.context, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, details)
 //
 //        detailsSpinner.adapter = arrayAdapter
@@ -349,12 +360,6 @@ class HomeFragment : Fragment() {
 //        }
 
         addIncomeExpensesBtn.setOnClickListener {
-//            if (tableLayout.childCount > 1) {
-//                // Start removing views from the second view (index 1)
-//                for (i in tableLayout.childCount - 1 downTo 1) {
-//                    tableLayout.removeViewAt(i)
-//                }
-//            }
             try {
                 val date = parseDate(dateEditText.text.toString())
                 val details = detailsEditText.text.toString()
@@ -363,13 +368,26 @@ class HomeFragment : Fragment() {
                 val income = incomeEditText.text.toString().toDoubleOrNull()
                 val expenses = expensesEditText.text.toString().toDoubleOrNull()
                 addTransactionToFirebase(date, details, company, income, expenses)
+                if (tableLayout.childCount > 1) {
+                    // Start removing views from the second view (index 1)
+                    for (i in tableLayout.childCount - 1 downTo 1) {
+                        tableLayout.removeViewAt(i)
+                    }
+                }
             } catch (e: Exception) {
                 Log.e(TAG, "Error adding transaction", e)
+            }
+            if (tableLayout.childCount > 1) {
+                // Start removing views from the second view (index 1)
+                for (i in tableLayout.childCount - 1 downTo 1) {
+                    tableLayout.removeViewAt(i)
+                }
             }
         }
 
         cancelIncomeExpensesBtn.setOnClickListener {
             dateEditText.text.clear()
+            detailsEditText.text.clear()
 //            detailsSpinner.setSelection(0)
             companyEditText.text.clear()
             incomeEditText.text.clear()
@@ -445,6 +463,13 @@ class HomeFragment : Fragment() {
         database.collection("transactions")
             .add(data)
             .addOnSuccessListener {
+                if (tableLayout.childCount > 1) {
+                    // Start removing views from the second view (index 1)
+                    for (i in tableLayout.childCount - 1 downTo 1) {
+                        tableLayout.removeViewAt(i)
+                    }
+                }
+                view?.let { it1 -> getTransactionsForSpecificBankFromDatabase(it1, tableLayout, company.toString()) }
                 dateEditText.text.clear()
                 detailsEditText.text.clear()
 //                detailsSpinner.setSelection(0)
@@ -457,12 +482,6 @@ class HomeFragment : Fragment() {
                 Log.e(TAG, "Error saving transaction to Firebase: ${e.message}")
                 // Handle error
             }
-        if (tableLayout.childCount > 1) {
-            // Start removing views from the second view (index 1)
-            for (i in tableLayout.childCount - 1 downTo 1) {
-                tableLayout.removeViewAt(i)
-            }
-        }
     }
 }
 
@@ -552,7 +571,7 @@ fun TransactionItem(transaction: Map<String, Any?>, onEditClicked: (String) -> U
                 Text(text = "Initial: ",
                     style = TextStyle(color = colorResource(id = R.color.black),
                         fontSize = 15.sp))
-                Text(text = transaction["initial"].toString(),
+                Text(text = "฿${transaction["initial"]}",
                     style = TextStyle(color = colorResource(id = R.color.black),
                         fontSize = 15.sp))
                 Text(text = " | ",
@@ -561,7 +580,7 @@ fun TransactionItem(transaction: Map<String, Any?>, onEditClicked: (String) -> U
                 Text(text = "Current: ",
                     style = TextStyle(color = colorResource(id = R.color.black),
                         fontSize = 15.sp))
-                Text(text = transaction["current"].toString(),
+                Text(text = "฿${transaction["current"]}",
                     style = TextStyle(color = colorResource(id = R.color.black),
                         fontSize = 15.sp))
             }

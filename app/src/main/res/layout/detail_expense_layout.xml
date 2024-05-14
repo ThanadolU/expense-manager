@@ -13,7 +13,7 @@
         android:id="@+id/colorIndicator"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:layout_marginStart="45dp"
+        android:layout_marginStart="15dp"
         android:background="@color/colorPrimary" />
 
     <!-- Details and expenses -->
@@ -23,7 +23,7 @@
         android:id="@+id/detailsTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="45dp"
+        android:layout_marginLeft="35dp"
         android:text="Details"
         android:textColor="@android:color/black"
         android:textSize="20sp" />
